@@ -8,11 +8,11 @@ The stock **Closing Price** and **Volume** of google and Apple.
 
 """)
 
-tsApple = 'AAPL'
-ts = 'GOOGL'
+keyApple = 'AAPL'
+keyGoogle = 'GOOGL'
 
-tdApple = yf.Ticker(tsApple)
-td = yf.Ticker(ts)
+tdApple = yf.Ticker(keyApple)
+td = yf.Ticker(keyGoogle)
 
 tDf = td.history(period='id', start='2010-1-1', end='2020-1-1')
 tDfApple = td.history(period='id', start='2010-1-1', end='2020-1-1')
@@ -29,6 +29,9 @@ st.write("""
          """)
 st.line_chart(tDf.Volume)
 
+st.write('''
+***
+         ''')
 
 st.write("""
 # Apple  *(2010-2020)*
