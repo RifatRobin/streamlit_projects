@@ -58,13 +58,25 @@ def letter_counter(ac):
 article_injection = letter_counter(article_cap)
 
 
-article_injection
+# article_injection
 
 st.write("""
+***
 ## datafreame
 """)
 dataFrame = pd.DataFrame.from_dict(article_injection, orient='index')
 dataFrame = dataFrame.rename({0: 'Count'}, axis='columns')
 dataFrame.reset_index(inplace=True)
-dataFrame = dataFrame.rename(columns={'index','Letters'})
+dataFrame = dataFrame.rename(columns={'index': 'Letters'})
 st.write(dataFrame)
+
+st.write("""
+***
+## Visualization
+""")
+
+plot_count = alt.Chart(dataFrame).mark_bar().encode(
+    y='Letters',
+    x='Count'
+)
+st.write(plot_count)
